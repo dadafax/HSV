@@ -1,6 +1,7 @@
 import React from "react";
 import NavBar from "../NavBar";
 import { Button } from "../components/Button";
+import Login from "../Auth/Login";
 
 
 const HomePage = () => {
@@ -8,7 +9,7 @@ const HomePage = () => {
         <div>
             <NavBar/>
             <h2>Bienvenue</h2>
-            <Button/>
+            <Login/>
         </div>
     );
 }
