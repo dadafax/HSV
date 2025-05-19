@@ -7,6 +7,7 @@ const DashboardPage = () => {
         <div>
             <NavBar/>
             <h2>Bienvenue sur le site</h2>
+            <p>test</p>
         </div>
     );
 }
