@@ -2,6 +2,6 @@ import React from "react";
 
 export const Button = ({...props}) => {
     return (
-        <button>Connexion</button>
+        <button onClick={props.page}>{props.text}</button>
     );
 }

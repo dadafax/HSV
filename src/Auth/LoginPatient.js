@@ -5,6 +5,7 @@ import { Button } from "../components/Button";
 const LoginPatient = () => {
     return (
         <form>
+            <h1>Page de connexion du Patient</h1>
             <div className="group">
                 <label htmlFor="login" ></label>
                 <input type="text" name="login" placeholder="adresse mail"/>

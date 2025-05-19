@@ -9,8 +9,8 @@ const HomePage = () => {
         <div>
             <NavBar/>
             <h2>Bienvenue</h2>
-            <LoginPatient/>
-            <LoginMedecin/>
+            <Button page="../Auth/LoginMedecin" text="Medecin"></Button>
+            <Button page="../Auth/LoginPatient" text="Patient"></Button>
             
         </div>
     );
