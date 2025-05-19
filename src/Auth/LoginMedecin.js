@@ -2,7 +2,7 @@ import React from "react";
 import { Form } from "react-router-dom";
 import { Button } from "../components/Button";
 
-const Login = () => {
+const LoginMedecin = () => {
     return (
         <form>
             <div className="group">
@@ -20,4 +20,4 @@ const Login = () => {
     )
 }
 
-export default Login
+export default LoginMedecin
