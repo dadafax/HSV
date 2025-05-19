@@ -6,12 +6,12 @@ const Login = () => {
     return (
         <form>
             <div className="group">
-                <label htmlFor="login" placeholder="adresse mail">Identifiant</label>
-                <input type="text" name="login"/>
+                <label htmlFor="login" ></label>
+                <input type="text" name="login" placeholder="adresse mail"/>
             </div>
             <div clasName="group">
-                <label htmlFor="password" placeholder="Mot de passe">Mot de passe</label>
-                <input type="text" name="password"/>
+                <label htmlFor="password" ></label>
+                <input type="text" name="password" placeholder="Mot de passe"/>
             </div>
             <div className="group">
                 <Button/>
