@@ -1,6 +1,5 @@
 import React from "react";
 import NavBar from "../NavBar";
-import { DEFAULT_STATS } from "webpack-dev-server";
 
 const DashboardPage = () => {
     return (
