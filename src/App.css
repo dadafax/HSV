@@ -1,7 +1,115 @@
 body {
-    background-color: #e8f1f9;
+    background-color: rgb(43, 44, 44);
     margin: 0;
     font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.mainmenu-root {
+  padding: 2rem;
+  min-height: 100vh;
+  background: rgb(43, 44, 44);
+}
+
+.mainmenu-header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 4rem;
+  width: 100%;
+}
+
+.mainmenu-btn {
+  font-size: 1.1rem;
+  padding: 1.1rem 2.5rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 600;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+  transition: background 0.2s, box-shadow 0.2s, color 0.2s;
+  margin-bottom: 0;
+  margin-top: 0;
+  outline: none;
+  background: #fff;
+  color: #222;
+}
+
+.mainmenu-btn-blue {
+  background-color: #3498db;
+  color: #fff;
+}
+
+.mainmenu-btn-blue:hover {
+  background-color: #217dbb;
+  color: #fff;
+  box-shadow: 0 6px 24px rgba(52,152,219,0.13);
+}
+
+.mainmenu-btn-grey {
+  background: #f2f2f2;
+  color: #222;
+  min-width: 150px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+}
+
+.mainmenu-btn-grey:hover {
+  background: #e0e0e0;
+  color: #222;
+}
+
+.mainmenu-login-wrapper {
+  margin-left: auto;
+}
+
+.mainmenu-header-flex > .mainmenu-btn, .mainmenu-header-flex > .mainmenu-login-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.mainmenu-header-flex > .mainmenu-login-wrapper {
+  justify-content: flex-end;
+}
+
+.mainmenu-content {
+  display: flex;
+  gap: 4rem;
+  margin-top: 2rem;
+  justify-content: flex-start;
+}
+
+.mainmenu-block {
+  min-width: 320px;
+  min-height: 180px;
+  padding: 2rem;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: flex-start;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.13);
+}
+
+.mainmenu-block-grey {
+  background: #f2f2f2;
+  color: #111;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+}
+
+@media (max-width: 900px) {
+  .mainmenu-content {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .mainmenu-header-flex {
+    flex-direction: column;
+    gap: 2rem;
+    align-items: stretch;
+  }
+  .mainmenu-header-flex > .mainmenu-btn, .mainmenu-header-flex > .mainmenu-login-wrapper {
+    justify-content: center;
+  }
 }
 
 .login-container {
@@ -137,112 +245,6 @@ nav a.active {
 
   nav {
     padding: 15px;
-  }
-}
-
-.mainmenu-root {
-  padding: 2rem;
-  min-height: 100vh;
-  background: #e8f1f9;
-}
-
-.mainmenu-header-flex {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 4rem;
-  width: 100%;
-}
-
-.mainmenu-btn {
-  font-size: 1.2rem;
-  padding: 1.1rem 2.5rem;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  font-family: inherit;
-  font-weight: 600;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.07);
-  transition: background 0.2s, box-shadow 0.2s, color 0.2s;
-  margin-bottom: 0;
-  margin-top: 0;
-  outline: none;
-}
-
-.mainmenu-btn-blue {
-  background-color: #3498db;
-  color: white;
-}
-
-.mainmenu-btn-blue:hover {
-  background-color: #217dbb;
-  color: #fff;
-  box-shadow: 0 6px 24px rgba(52,152,219,0.13);
-}
-
-.mainmenu-btn-grey {
-  background: #f2f2f2;
-  color: #222;
-  min-width: 150px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.07);
-}
-
-.mainmenu-btn-grey:hover {
-  background: #e0e0e0;
-  color: #222;
-}
-
-.mainmenu-login-wrapper {
-  margin-left: auto;
-}
-
-.mainmenu-header-flex > .mainmenu-btn, .mainmenu-header-flex > .mainmenu-login-wrapper {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-}
-
-.mainmenu-header-flex > .mainmenu-login-wrapper {
-  justify-content: flex-end;
-}
-
-.mainmenu-content {
-  display: flex;
-  gap: 4rem;
-  margin-top: 2rem;
-  justify-content: flex-start;
-}
-
-.mainmenu-block {
-  min-width: 320px;
-  min-height: 180px;
-  padding: 2rem;
-  font-size: 1.2rem;
-  display: flex;
-  align-items: flex-start;
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-}
-
-.mainmenu-block-grey {
-  background: #dddddd;
-  color: #111;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.07);
-}
-
-@media (max-width: 900px) {
-  .mainmenu-content {
-    flex-direction: column;
-    gap: 2rem;
-  }
-  .mainmenu-header-flex {
-    flex-direction: column;
-    gap: 2rem;
-    align-items: stretch;
-  }
-  .mainmenu-header-flex > .mainmenu-btn, .mainmenu-header-flex > .mainmenu-login-wrapper {
-    justify-content: center;
   }
 }
 
