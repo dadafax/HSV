@@ -9,9 +9,8 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "��#\u0000 \u0000H\u0000S\u0000V\u0000\r\u0000 \u0000#\u0000 \u0000H\u0000S\u0000V\u0000\r\u0000 \u0000",
   "dependencies": {
-    "mongoose": "^8.15.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router-dom": "^6.30.0"
@@ -27,5 +26,14 @@
     "webpack": "^5.99.8",
     "webpack-cli": "^6.0.1",
     "webpack-dev-server": "^5.2.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dadafax/HSV.git"
+  },
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/dadafax/HSV/issues"
+  },
+  "homepage": "https://github.com/dadafax/HSV#readme"
 }
