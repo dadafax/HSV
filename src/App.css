@@ -1,3 +1,82 @@
 body {
     background-color: rgb(43, 44, 44);
+
+}
+
+.login-container {
+  max-width: 400px;
+  margin: 60px auto;
+  padding: 30px 40px;
+  background-color: #ffffff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.login-container h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #2c3e50;
+}
+
+.group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.group label {
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #333;
+}
+
+.group input,
+.group select {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: border 0.2s ease;
+}
+
+.group input:focus,
+.group select:focus {
+  border-color: #3498db;
+}
+
+.message {
+  background-color: #eafaf1;
+  border: 1px solid #2ecc71;
+  color: #27ae60;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Button styling */
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #3498db;
+  border: none;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+@media (max-width: 480px) {
+  .login-container {
+    padding: 20px;
+    margin: 30px 15px;
+  }
 }
