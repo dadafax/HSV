@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 const connectDB = async () => {
   try {
-    await mongoose.connect('mongodb+srv://Leo:1234@cluster0.rfsaemr.mongodb.net/', {
+    await mongoose.connect('mongodb://localhost:27017/hsv', {
       useNewUrlParser: true,
       useUnifiedTopology: true
     });
@@ -15,3 +15,4 @@ const connectDB = async () => {
 };
 
 module.exports = connectDB;
+
