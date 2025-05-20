@@ -1,24 +1,104 @@
-import React from "react";
-import { Form } from "react-router-dom";
+import React, { useState } from "react";
+import axios from "axios";
 import { Button } from "../components/Button";
 
 const LoginPage = () => {
-    return (
-        <form>
-            <h1>Page d'inscription</h1>
-            <div className="group">
-                <label htmlFor="login" ></label>
-                <input type="text" name="login" placeholder="adresse mail"/>
-            </div>
-            <div clasName="group">
-                <label htmlFor="password" ></label>
-                <input type="text" name="password" placeholder="Mot de passe"/>
-            </div>
-            <div className="group">
-                <Button page="../Auth/LoginPage" text="Inscription"></Button>
-            </div>
-        </form>
-    )
-}
+    const [formData, setFormData] = useState({
+        nom: '',
+        prenom: '',
+        email: '',
+        role: 'patient'
+    });
 
-export default LoginPage
+    const [message, setMessage] = useState('');
+
+    const handleChange = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value
+        });
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await axios.post('http://localhost:5000/api/auth/inscription', formData);
+            setMessage('Inscription réussie !');
+            console.log('Inscription réussie:', response.data);
+            // Réinitialiser le formulaire
+            setFormData({
+                nom: '',
+                prenom: '',
+                email: '',
+                role: 'patient'
+            });
+        } catch (error) {
+            setMessage(error.response?.data?.message || 'Erreur lors de l\'inscription');
+            console.error('Erreur:', error);
+        }
+    };
+
+    return (
+        <div className="login-container">
+            <form onSubmit={handleSubmit}>
+                <h1>Page d'inscription</h1>
+                {message && <div className="message">{message}</div>}
+                
+                <div className="group">
+                    <label htmlFor="nom">Nom</label>
+                    <input
+                        type="text"
+                        name="nom"
+                        value={formData.nom}
+                        onChange={handleChange}
+                        placeholder="Votre nom"
+                        required
+                    />
+                </div>
+
+                <div className="group">
+                    <label htmlFor="prenom">Prénom</label>
+                    <input
+                        type="text"
+                        name="prenom"
+                        value={formData.prenom}
+                        onChange={handleChange}
+                        placeholder="Votre prénom"
+                        required
+                    />
+                </div>
+
+                <div className="group">
+                    <label htmlFor="email">Email</label>
+                    <input
+                        type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        placeholder="Votre email"
+                        required
+                    />
+                </div>
+
+                <div className="group">
+                    <label htmlFor="role">Type de compte</label>
+                    <select
+                        name="role"
+                        value={formData.role}
+                        onChange={handleChange}
+                        required
+                    >
+                        <option value="patient">Patient</option>
+                        <option value="medecin">Médecin</option>
+                    </select>
+                </div>
+
+                <div className="group">
+                    <Button type="submit" text="S'inscrire" />
+                </div>
+            </form>
+        </div>
+    );
+};
+
+export default LoginPage;
