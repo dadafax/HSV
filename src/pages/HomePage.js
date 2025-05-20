@@ -9,7 +9,6 @@ const HomePage = () => {
     return (
         <div>
             <NavBar/>
-            <h2>Bienvenue</h2>
             {/*<Button page="../Auth/LoginMedecin" text="Medecin"></Button>
             <Button page="../Auth/LoginPatient" text="Patient"></Button>*/}
             <LoginPage/>
