@@ -2,18 +2,16 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Button } from "../components/Button";
 import NavBar from "../NavBar";
-import { useNavigate } from "react-router-dom"; // 👈 Ajout
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
     const [formData, setFormData] = useState({
-        nom: '',
-        prenom: '',
         email: '',
-        role: 'patient'
+        motDePasse: ''
     });
 
     const [message, setMessage] = useState('');
-    const navigate = useNavigate(); // 👈 Initialisation
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         setFormData({
@@ -25,22 +23,20 @@ const LoginPage = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:5000/api/auth/inscription', formData);
-            setMessage('Inscription réussie !');
-            console.log('Inscription réussie:', response.data);
+            const response = await axios.post('http://localhost:5000/api/auth/connexion', formData);
+            setMessage('Connexion réussie !');
+            console.log('Connexion réussie:', response.data);
 
             // Réinitialiser le formulaire
             setFormData({
-                nom: '',
-                prenom: '',
                 email: '',
-                role: 'patient'
+                motDePasse: ''
             });
 
-            // ✅ Redirection vers Dashboard
+            // Redirection vers Dashboard
             navigate('/DashboardPage');
         } catch (error) {
-            setMessage(error.response?.data?.message || 'Erreur lors de l\'inscription');
+            setMessage(error.response?.data?.message || 'Erreur lors de la connexion');
             console.error('Erreur:', error);
         }
     };
@@ -48,32 +44,8 @@ const LoginPage = () => {
     return (
         <div className="login-container">
             <form onSubmit={handleSubmit}>
-                <h1>Page d'inscription</h1>
+                <h1>Page de connexion</h1>
                 {message && <div className="message">{message}</div>}
-
-                <div className="group">
-                    <label htmlFor="nom">Nom</label>
-                    <input
-                        type="text"
-                        name="nom"
-                        value={formData.nom}
-                        onChange={handleChange}
-                        placeholder="Votre nom"
-                        required
-                    />
-                </div>
-
-                <div className="group">
-                    <label htmlFor="prenom">Prénom</label>
-                    <input
-                        type="text"
-                        name="prenom"
-                        value={formData.prenom}
-                        onChange={handleChange}
-                        placeholder="Votre prénom"
-                        required
-                    />
-                </div>
 
                 <div className="group">
                     <label htmlFor="email">Email</label>
@@ -88,20 +60,19 @@ const LoginPage = () => {
                 </div>
 
                 <div className="group">
-                    <label htmlFor="role">Type de compte</label>
-                    <select
-                        name="role"
-                        value={formData.role}
+                    <label htmlFor="motDePasse">Mot de passe</label>
+                    <input
+                        type="password"
+                        name="motDePasse"
+                        value={formData.motDePasse}
                         onChange={handleChange}
+                        placeholder="Votre mot de passe"
                         required
-                    >
-                        <option value="patient">Patient</option>
-                        <option value="medecin">Médecin</option>
-                    </select>
+                    />
                 </div>
 
                 <div className="group">
-                    <Button type="submit" text="S'inscrire" />
+                    <Button type="submit" text="Se connecter" />
                 </div>
             </form>
         </div>

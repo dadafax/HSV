@@ -14,6 +14,10 @@ const userSchema = new mongoose.Schema({
     required: true,
     unique: true
   },
+  motDePasse: {
+    type: String,
+    required: true
+  },
   role: {
     type: String,
     enum: ['patient', 'medecin'],
