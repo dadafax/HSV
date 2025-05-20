@@ -1,5 +1,6 @@
 body {
-    background-color: rgb(43, 44, 44);
+    background-color: #e8f1f9;
+
 
 }
 
@@ -84,7 +85,7 @@ button:hover {
 /* NavBar.css */
 
 nav {
-  background-color: rgb(43, 44, 44);
+  background-color: #e8f1f9;
   padding: 15px 30px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
   position: sticky;
