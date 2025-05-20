@@ -1,5 +1,5 @@
-import React from "react";
-import { Form } from "react-router-dom";
+import React, { useState } from "react";
+import axios from "axios";
 import { Button } from "../components/Button";
 
 const LoginMedecin = () => {
@@ -7,18 +7,30 @@ const LoginMedecin = () => {
         <form>
             <h1>Page de connexion du Medecin</h1>
             <div className="group">
-                <label htmlFor="login" ></label>
-                <input type="text" name="login" placeholder="adresse mail"/>
-            </div>
-            <div clasName="group">
-                <label htmlFor="password" ></label>
-                <input type="text" name="password" placeholder="Mot de passe"/>
+                <label htmlFor="login">Adresse mail</label>
+                <input
+                    type="text"
+                    name="login"
+                    value={login}
+                    onChange={(e) => setLogin(e.target.value)}
+                    placeholder="Adresse mail"
+                />
             </div>
             <div className="group">
-                <Button/>
+                <label htmlFor="password">Mot de passe</label>
+                <input
+                    type="password"
+                    name="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder="Mot de passe"
+                />
+            </div>
+            <div className="group">
+                <Button type="submit" text="Se connecter" />
             </div>
         </form>
-    )
-}
+    );
+};
 
 export default LoginMedecin
