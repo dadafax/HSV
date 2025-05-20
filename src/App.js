@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import MainMenu from "./components/MainMenu";
 import LoginPage from "./Auth/LoginPage";
+import DashboardPage from './pages/DashboardPage';
 import './App.css';
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
       <Routes>
         <Route path="/" element={<MainMenu />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/DashboardPage" element={<DashboardPage />} />
       </Routes>
     </Router>
   );

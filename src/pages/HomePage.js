@@ -8,7 +8,6 @@ import LoginPage from "../Auth/LoginPage";
 const HomePage = () => {
     return (
         <div>
-            <NavBar/>
             {/*<Button page="../Auth/LoginMedecin" text="Medecin"></Button>
             <Button page="../Auth/LoginPatient" text="Patient"></Button>*/}
             <LoginPage/>

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Button } from "../components/Button";
+import NavBar from "../NavBar";
+import { useNavigate } from "react-router-dom"; // 👈 Ajout
 
 const LoginPage = () => {
     const [formData, setFormData] = useState({
@@ -11,6 +13,7 @@ const LoginPage = () => {
     });
 
     const [message, setMessage] = useState('');
+    const navigate = useNavigate(); // 👈 Initialisation
 
     const handleChange = (e) => {
         setFormData({
@@ -25,6 +28,7 @@ const LoginPage = () => {
             const response = await axios.post('http://localhost:5000/api/auth/inscription', formData);
             setMessage('Inscription réussie !');
             console.log('Inscription réussie:', response.data);
+
             // Réinitialiser le formulaire
             setFormData({
                 nom: '',
@@ -32,6 +36,9 @@ const LoginPage = () => {
                 email: '',
                 role: 'patient'
             });
+
+            // ✅ Redirection vers Dashboard
+            navigate('/DashboardPage');
         } catch (error) {
             setMessage(error.response?.data?.message || 'Erreur lors de l\'inscription');
             console.error('Erreur:', error);
@@ -43,7 +50,7 @@ const LoginPage = () => {
             <form onSubmit={handleSubmit}>
                 <h1>Page d'inscription</h1>
                 {message && <div className="message">{message}</div>}
-                
+
                 <div className="group">
                     <label htmlFor="nom">Nom</label>
                     <input

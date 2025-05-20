@@ -1,7 +1,9 @@
 import React from "react";
 
-export const Button = ({...props}) => {
+export const Button = ({ text, type = "button", onClick }) => {
     return (
-        <button onClick={props.page}>{props.text}</button>
+        <button type={type} onClick={onClick}>
+            {text}
+        </button>
     );
-}
+};
