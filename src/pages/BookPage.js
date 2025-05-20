@@ -5,8 +5,16 @@ const BookPage = () => {
     return (
         <div>
             <NavBar/>
-            <h2>Réserver</h2>
-            <>Réserver votre place ici.</>
+            <p>Réserver votre place ici.</p>
+            <select name="rdv" id="rdv-select">
+                <option value="">--Please choose an option--</option>
+                <option value="Cardiologie">Cardiologue</option>
+                <option value="Pneumologie">Pneumoligue</option>
+                <option value="Neurologie">Neurologue</option>
+                <option value="Dermatologie">Dermatologue</option>
+                <option value="Rhumatologie">Rhumatologue</option>
+                <option value="Nephrologie">Néphrologue</option>
+            </select>
         </div>
     );
 }
