@@ -5,7 +5,7 @@ const User = require('../models/User');
 // Route d'inscription
 router.post('/inscription', async (req, res) => {
   try {
-    const { nom, prenom, email, motDePasse, role } = req.body;
+    const { nom, prenom, email, motDePasse, role, specialite } = req.body;
 
     // Vérifier si l'utilisateur existe déjà
     const utilisateurExistant = await User.findOne({ email });
@@ -19,7 +19,8 @@ router.post('/inscription', async (req, res) => {
       prenom,
       email,
       motDePasse,
-      role
+      role,
+      ...(role === 'medecin' && { specialite })
     });
 
     // Sauvegarder l'utilisateur
@@ -32,7 +33,8 @@ router.post('/inscription', async (req, res) => {
         nom: nouvelUtilisateur.nom,
         prenom: nouvelUtilisateur.prenom,
         email: nouvelUtilisateur.email,
-        role: nouvelUtilisateur.role
+        role: nouvelUtilisateur.role,
+        specialite: nouvelUtilisateur.specialite
       }
     });
   } catch (error) {

@@ -5,7 +5,18 @@ const SearchPage = () => {
     return (
         <div>
             <NavBar/>
-            <p>Page de recherche !</p>
+        <div className="search-container">
+            <input
+                type="search"
+                id="site-search"
+                name="q"
+                className="search-input"
+                placeholder="Search the site..."
+            />
+            <button type="button" className="search-button">Search</button>
+        </div>
+
+
         </div>
     )
 }
