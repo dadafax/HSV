@@ -23,6 +23,10 @@ const userSchema = new mongoose.Schema({
     enum: ['patient', 'medecin'],
     required: true
   },
+  specialite: {
+    type: String,
+    required: false
+  },
   dateCreation: {
     type: Date,
     default: Date.now
