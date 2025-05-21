@@ -5,6 +5,7 @@ import LoginPage from "./Auth/LoginPage";
 import RegisterPage from "./Auth/RegisterPage";
 import DashboardPage from './pages/DashboardPage';
 import MedecinProfile from './pages/MedecinProfile';
+import BookPage from './pages/BookPage';
 import './App.css';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/DashboardPage" element={<DashboardPage />} />
+        <Route path="/book" element={<BookPage />} />
         <Route path="/medecin/:id" element={<MedecinProfile />} />
       </Routes>
     </Router>
