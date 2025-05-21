@@ -10,6 +10,8 @@ const BookPage = () => {
     const [error, setError] = useState("");
     const navigate = useNavigate();
 
+    const colors = ["#f8d7da", "#d1ecf1", "#d4edda", "#fff3cd", "#cce5ff", "#e2e3e5", "#f5c6cb"];
+
     const handleChange = async (e) => {
         const value = e.target.value;
         setSpecialite(value);
@@ -62,17 +64,21 @@ const BookPage = () => {
                     <div className="medecins-list">
                         <h2>Médecins disponibles :</h2>
                         <div className="medecins-grid">
-                            {medecins.map((medecin) => (
-                                <div 
-                                    key={medecin._id} 
-                                    className="medecin-card"
-                                    onClick={() => handleMedecinClick(medecin._id)}
-                                >
-                                    <h3>Dr. {medecin.nom} {medecin.prenom}</h3>
-                                    <p>Spécialité : {medecin.specialite}</p>
-                                    <p>Email : {medecin.email}</p>
-                                </div>
-                            ))}
+                            {medecins.map((medecin) => {
+                                const randomColor = colors[Math.floor(Math.random() * colors.length)];
+                                return (
+                                    <div 
+                                        key={medecin._id} 
+                                        className="medecin-card"
+                                        style={{ backgroundColor: randomColor }}
+                                        onClick={() => handleMedecinClick(medecin._id)}
+                                    >
+                                        <h3>Dr. {medecin.nom} {medecin.prenom}</h3>
+                                        <p>Spécialité : {medecin.specialite}</p>
+                                        <p>Email : {medecin.email}</p>
+                                    </div>
+                                );
+                            })}
                         </div>
                     </div>
                 )}
