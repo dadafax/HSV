@@ -34,7 +34,6 @@ const BookPage = () => {
 
     return (
         <div className="book-container">
-            <NavBar/>
             <div className="book-content">
                 <h1>Prendre rendez-vous</h1>
                 <div className="specialite-selector">
