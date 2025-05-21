@@ -15,8 +15,6 @@ const SearchPage = () => {
             />
             <button type="button" className="search-button">Search</button>
         </div>
-
-
         </div>
     )
 }
