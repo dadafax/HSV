@@ -3,7 +3,7 @@ import NavBar from "../NavBar";
 
 const HomePage = () => {
     return (
-        <div className="dashboard-container">
+        <div className="homepage-container">
             <NavBar/>
             <h2>Bienvenue sur le site</h2>
         </div>

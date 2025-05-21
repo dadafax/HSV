@@ -33,8 +33,8 @@ const LoginPage = () => {
                 motDePasse: ''
             });
 
-            // Redirection vers Dashboard
-            navigate('/DashboardPage');
+            // Redirection vers HomePage
+            navigate('/HomePage');
         } catch (error) {
             setMessage(error.response?.data?.message || 'Erreur lors de la connexion');
             console.error('Erreur:', error);
