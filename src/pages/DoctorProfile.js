@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import NavBar from "../NavBar";
 
-const MedecinProfile = () => {
+const DoctorProfile = () => {
     const { id } = useParams();
     const [medecin, setMedecin] = useState(null);
     const [error, setError] = useState("");
@@ -43,4 +43,4 @@ const MedecinProfile = () => {
     );
 };
 
-export default MedecinProfile; 
+export default DoctorProfile; 
