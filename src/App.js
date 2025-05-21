@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import MainMenu from "./components/MainMenu";
 import LoginPage from "./Auth/LoginPage";
 import RegisterPage from "./Auth/RegisterPage";
-import DashboardPage from './pages/DashboardPage';
+import HomePage from './pages/HomePage';
 import MedecinProfile from './pages/MedecinProfile';
 import BookPage from './pages/BookPage';
 import SearchPage from './pages/SearchPage';
@@ -17,7 +17,7 @@ function App() {
         <Route path="/" element={<MainMenu />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
-        <Route path="/DashboardPage" element={<DashboardPage />} />
+        <Route path="/HomePage" element={<HomePage />} />
         <Route path="/book" element={<BookPage />} />
         <Route path="/medecin/:id" element={<MedecinProfile />} />
         <Route path="/SearchPage" element={<SearchPage/>} />
