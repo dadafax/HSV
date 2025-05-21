@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import NavBar from "../NavBar";
 
-const TableauBordPage = () => {
+const DashboardPage = () => {
   return (
     <div>
       <NavBar />
@@ -32,4 +32,4 @@ const TableauBordPage = () => {
   );
 };
 
-export default TableauBordPage;
+export default DashboardPage;

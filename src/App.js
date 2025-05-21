@@ -7,7 +7,7 @@ import HomePage from './pages/HomePage';
 import MedecinProfile from './pages/MedecinProfile';
 import BookPage from './pages/BookPage';
 import SearchPage from './pages/SearchPage';
-import TableauBordPage from "./pages/TableauBord";
+import DashboardPage from "./pages/DashboardPage";
 import './App.css';
 
 function App() {
@@ -21,7 +21,7 @@ function App() {
         <Route path="/book" element={<BookPage />} />
         <Route path="/medecin/:id" element={<MedecinProfile />} />
         <Route path="/SearchPage" element={<SearchPage/>} />
-        <Route path="/tableau" element={<TableauBordPage />} />
+        <Route path="/DashboardPage" element={<DashboardPage />} />
       </Routes>
     </Router>
   );
