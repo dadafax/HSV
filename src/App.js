@@ -6,6 +6,7 @@ import RegisterPage from "./Auth/RegisterPage";
 import DashboardPage from './pages/DashboardPage';
 import MedecinProfile from './pages/MedecinProfile';
 import BookPage from './pages/BookPage';
+import SearchPage from './pages/SearchPage';
 import './App.css';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path="/DashboardPage" element={<DashboardPage />} />
         <Route path="/book" element={<BookPage />} />
         <Route path="/medecin/:id" element={<MedecinProfile />} />
+        <Route path="/SearchPage" element={<SearchPage/>} />
       </Routes>
     </Router>
   );
