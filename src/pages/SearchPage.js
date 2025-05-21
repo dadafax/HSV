@@ -11,6 +11,8 @@ const specialites = [
     "Néphrologue"
 ];
 
+const colors = ["lightblue", "lightgreen", "lightyellow", "lightcoral", "Plum", "Magenta", "GreenYellow"];
+
 const SearchPage = () => {
     const [searchQuery, setSearchQuery] = useState("");
     const [specialite, setSpecialite] = useState("");
@@ -45,19 +47,54 @@ const SearchPage = () => {
 
     return (
         <div>
-            <NavBar/>
-        <div className="search-container">
-            <input
-                type="search"
-                id="site-search"
-                name="q"
-                className="search-input"
-                placeholder="Search the site..."
-            />
-            <button type="button" className="search-button">Search</button>
-        </div>
+            <NavBar />
 
+            <div className="search-container">
+                <input
+                    type="search"
+                    id="site-search"
+                    name="q"
+                    className="search-input"
+                    placeholder="Rechercher un médecin..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                />
+                <select
+                    className="specialite-select"
+                    value={specialite}
+                    onChange={(e) => setSpecialite(e.target.value)}
+                >
+                    <option value="">Toutes les spécialités</option>
+                    {specialites.map((spec, idx) => (
+                        <option key={idx} value={spec}>{spec}</option>
+                    ))}
+                </select>
+            </div>
 
+            <div className="medecins-list">
+                {loading ? (
+                    <p className="loading">Chargement en cours...</p>
+                ) : medecins.length === 0 ? (
+                    <p>Aucun médecin trouvé.</p>
+                ) : (
+                    <div className="medecins-grid">
+                        {medecins.map((medecin, index) => {
+                            const backgroundColor = colors[index % colors.length];
+                            return (
+                                <div
+                                    key={medecin.id || index}
+                                    className="medecin-card"
+                                    style={{ backgroundColor }}
+                                >
+                                    <h3>{medecin.nom}</h3>
+                                    <p>Spécialité : {medecin.specialite}</p>
+                                    <p>Ville : {medecin.ville}</p>
+                                </div>
+                            );
+                        })}
+                    </div>
+                )}
+            </div>
         </div>
     );
 };
