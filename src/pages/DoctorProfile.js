@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
-const MedecinProfile = () => {
+const DoctorProfile = () => {
     const { id } = useParams();
     const [medecin, setMedecin] = useState(null);
     const [error, setError] = useState("");
@@ -38,4 +38,4 @@ const MedecinProfile = () => {
     );
 };
 
-export default MedecinProfile; 
+export default DoctorProfile; 

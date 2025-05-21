@@ -4,7 +4,7 @@ import MainMenu from "./components/MainMenu";
 import LoginPage from "./Auth/LoginPage";
 import RegisterPage from "./Auth/RegisterPage";
 import HomePage from './pages/HomePage';
-import MedecinProfile from './pages/MedecinProfile';
+import DoctorProfile from './pages/DoctorProfile';
 import BookPage from './pages/BookPage';
 import SearchPage from './pages/SearchPage';
 import DashboardPage from "./pages/DashboardPage";
@@ -19,7 +19,7 @@ function App() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/HomePage" element={<HomePage />} />
         <Route path="/book" element={<BookPage />} />
-        <Route path="/medecin/:id" element={<MedecinProfile />} />
+        <Route path="/doctor/:id" element={<DoctorProfile />} />
         <Route path="/SearchPage" element={<SearchPage/>} />
         <Route path="/DashboardPage" element={<DashboardPage />} />
       </Routes>
