@@ -17,9 +17,6 @@ const TableauBordPage = () => {
           <Link to="/book" className="appointment-button">
             Prendre RDV
           </Link>
-          <Link to="/login" className="mainmenu-btn mainmenu-btn-grey">
-            Login
-          </Link>
         </div>
 
         <div className="mainmenu-content">
