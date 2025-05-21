@@ -36,7 +36,7 @@ const DoctorProfile = () => {
                 <div className="group"><b>Nom :</b> {medecin.nom}</div>
                 <div className="group"><b>Prénom :</b> {medecin.prenom}</div>
                 <div className="group"><b>Email :</b> {medecin.email}</div>
-                <div className="group"><b>Rôle :</b> {medecin.role}</div>
+                <div className="group"><b>Spécialité :</b> {medecin.specialite}</div>
                 <div className="group"><b>Date de création :</b> {new Date(medecin.dateCreation).toLocaleString()}</div>
             </div> 
         </div>
