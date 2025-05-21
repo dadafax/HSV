@@ -10,7 +10,8 @@ const RegisterPage = () => {
         prenom: '',
         email: '',
         motDePasse: '',
-        role: 'patient'
+        role: 'patient',
+        specialite: ''
     });
 
     const [message, setMessage] = useState('');
@@ -26,7 +27,11 @@ const RegisterPage = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:5000/api/auth/inscription', formData);
+            const dataToSend = { ...formData };
+            if (formData.role !== 'medecin') {
+                delete dataToSend.specialite;
+            }
+            const response = await axios.post('http://localhost:5000/api/auth/inscription', dataToSend);
             setMessage('Inscription réussie !');
             console.log('Inscription réussie:', response.data);
 
@@ -36,7 +41,8 @@ const RegisterPage = () => {
                 prenom: '',
                 email: '',
                 motDePasse: '',
-                role: 'patient'
+                role: 'patient',
+                specialite: ''
             });
 
             // Redirection vers la page de connexion
@@ -113,6 +119,26 @@ const RegisterPage = () => {
                         <option value="medecin">Médecin</option>
                     </select>
                 </div>
+
+                {formData.role === 'medecin' && (
+                    <div className="group">
+                        <label htmlFor="specialite">Spécialité</label>
+                        <select
+                            name="specialite"
+                            value={formData.specialite}
+                            onChange={handleChange}
+                            required
+                        >
+                            <option value="">--Choisissez une spécialité--</option>
+                            <option value="Cardiologue">Cardiologue</option>
+                            <option value="Pneumologue">Pneumologue</option>
+                            <option value="Neurologue">Neurologue</option>
+                            <option value="Dermatologue">Dermatologue</option>
+                            <option value="Rhumatologue">Rhumatologue</option>
+                            <option value="Néphrologue">Néphrologue</option>
+                        </select>
+                    </div>
+                )}
 
                 <div className="group">
                     <button type="submit">S'inscrire</button>

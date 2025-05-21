@@ -2,18 +2,20 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
 
-// Route de recherche de médecins par nom
+// Route de recherche de médecins par nom ou spécialité
 router.get('/recherche', async (req, res) => {
   try {
-    const { nom } = req.query;
-    if (!nom) {
-      return res.status(400).json({ message: 'Le nom est requis' });
+    const { nom, specialite } = req.query;
+    let query = { role: 'medecin' };
+    if (specialite) {
+      query.specialite = specialite;
+    } else if (nom) {
+      query.nom = { $regex: nom, $options: 'i' };
+    } else {
+      return res.status(400).json({ message: 'Le nom ou la spécialité est requis' });
     }
-    // Recherche insensible à la casse, partielle
-    const medecins = await User.find({
-      role: 'medecin',
-      nom: { $regex: nom, $options: 'i' }
-    }).select('-motDePasse'); // Ne pas retourner le mot de passe
+    // Recherche insensible à la casse, partielle pour le nom
+    const medecins = await User.find(query).select('-motDePasse'); // Ne pas retourner le mot de passe
 
     res.json(medecins);
   } catch (error) {
