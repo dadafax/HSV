@@ -40,5 +40,6 @@
   "bugs": {
     "url": "https://github.com/dadafax/HSV/issues"
   },
-  "homepage": "https://github.com/dadafax/HSV#readme"
+  "homepage": "https://github.com/dadafax/HSV#readme",
+  "type": "commonjs"
 }

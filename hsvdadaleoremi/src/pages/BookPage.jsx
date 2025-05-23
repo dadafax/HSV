@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import NavBar from "../NavBar";
+import NavBar from "../components/NavBar";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+
+const DB_PORT = import.meta.env.VITE_DB_PORT;
 
 const BookPage = () => {
     const [specialite, setSpecialite] = useState("");
@@ -20,7 +22,7 @@ const BookPage = () => {
         if (value) {
             setLoading(true);
             try {
-                const res = await axios.get(`http://localhost:5000/api/medecins/recherche?specialite=${encodeURIComponent(value)}`);
+                const res = await axios.get(`http://localhost:${DB_PORT}/api/medecins/recherche?specialite=${encodeURIComponent(value)}`);
                 setMedecins(res.data);
             } catch (err) {
                 setError("Erreur lors de la récupération des médecins.");

@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import NavBar from "../NavBar";
+import NavBar from "../components/NavBar";
+
+const DB_PORT = import.meta.env.VITE_DB_PORT;
 
 const DoctorProfile = () => {
     const { id } = useParams();
@@ -12,7 +14,7 @@ const DoctorProfile = () => {
     useEffect(() => {
         const fetchMedecin = async () => {
             try {
-                const res = await axios.get(`http://localhost:5000/api/medecins/${id}`);
+                const res = await axios.get(`http://localhost:${DB_PORT}/api/medecins/${id}`);
                 setMedecin(res.data);
             } catch (err) {
                 setError("Médecin non trouvé.");

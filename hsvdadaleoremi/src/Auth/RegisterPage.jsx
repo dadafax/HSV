@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Button } from "../components/Button";
-import NavBar from "../NavBar";
+import NavBar from "../components/NavBar";
 import { useNavigate } from "react-router-dom";
 
 const RegisterPage = () => {

@@ -1,12 +1,10 @@
-require("dotenv").config();
+
 import React, { useState } from "react";
 import axios from "axios";
 import { Button } from "../components/Button";
-import NavBar from "../NavBar";
+import NavBar from "../components/NavBar";
 import { useNavigate } from "react-router-dom";
-
-const PORT = process.env.PORT;
-console.log(PORT);
+const DB_PORT = import.meta.env.VITE_DB_PORT;
 
 const LoginPage = () => {
     const [formData, setFormData] = useState({
@@ -27,7 +25,7 @@ const LoginPage = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post(`http://localhost:${PORT}/api/auth/connexion`, formData);
+            const response = await axios.post(`http://localhost:${DB_PORT}/api/auth/connexion`, formData);
             setMessage('Connexion réussie !');
             console.log('Connexion réussie:', response.data);
 
@@ -41,6 +39,7 @@ const LoginPage = () => {
             navigate('/HomePage');
         } catch (error) {
             setMessage(error.response?.data?.message || 'Erreur lors de la connexion');
+            console.log(PORT);
             console.error('Erreur:', error);
         }
     };
