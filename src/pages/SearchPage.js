@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import NavBar from "../NavBar";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const specialites = [
     "Cardiologue",
@@ -18,6 +19,7 @@ const SearchPage = () => {
     const [specialite, setSpecialite] = useState("");
     const [medecins, setMedecins] = useState([]);
     const [loading, setLoading] = useState(false);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const searchMedecins = async () => {
@@ -48,18 +50,34 @@ const SearchPage = () => {
     return (
         <div>
             <NavBar/>
-        <div className="search-container">
-            <input
-                type="search"
-                id="site-search"
-                name="q"
-                className="search-input"
-                placeholder="Search the site..."
-            />
-            <button type="button" className="search-button">Search</button>
-        </div>
+            <div className="search-container">
+                <input
+                    type="search"
+                    id="site-search"
+                    name="q"
+                    className="search-input"
+                    placeholder="Rechercher un médecin..."
+                    value={searchQuery}
+                    onChange={e => setSearchQuery(e.target.value)}
+                />
+                <button type="button" className="search-button">Rechercher</button>
+            </div>
 
+            {loading && <div>Chargement...</div>}
 
+            {medecins.length > 0 && (
+                <ul className="search-suggestions" style={{marginTop: "20px", listStyle: "none", padding: 0}}>
+                    {medecins.map(medecin => (
+                        <li
+                            key={medecin._id}
+                            style={{padding: "8px 0", borderBottom: "1px solid #eee", cursor: "pointer"}}
+                            onClick={() => navigate(`/medecin/${medecin._id}`)}
+                        >
+                            <strong>{medecin.nom} {medecin.prenom}</strong> — {medecin.specialite}
+                        </li>
+                    ))}
+                </ul>
+            )}
         </div>
     );
 };
