@@ -12,7 +12,7 @@ const specialites = [
     "Néphrologue"
 ];
 
-
+    
 
 const SearchPage = () => {
     const [searchQuery, setSearchQuery] = useState("");
