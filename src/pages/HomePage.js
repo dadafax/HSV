@@ -3,9 +3,11 @@ import NavBar from "../NavBar";
 
 const HomePage = () => {
     return (
-        <div className="homepage-container">
+        <div>
             <NavBar/>
-            <h2>Bienvenue sur le site</h2>
+            <div className="homepage-container">
+                <h2>Bienvenue sur le site</h2>
+            </div>
         </div>
     );
 }
