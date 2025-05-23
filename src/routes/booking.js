@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Booking = require('./models/Booking');
+const Booking = require('../models/Booking');
 
 // Route pour créer une réservation
 router.post('/', async (req, res) => {
