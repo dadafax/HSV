@@ -4,6 +4,10 @@ import { Button } from "../components/Button";
 import NavBar from "../NavBar";
 import { useNavigate } from "react-router-dom";
 
+const PORT = () => {
+
+}
+
 const LoginPage = () => {
     const [formData, setFormData] = useState({
         email: '',
@@ -23,7 +27,7 @@ const LoginPage = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:5000/api/auth/connexion', formData);
+            const response = await axios.post(`http://localhost:${PORT}/api/auth/connexion`, formData);
             setMessage('Connexion réussie !');
             console.log('Connexion réussie:', response.data);
 
