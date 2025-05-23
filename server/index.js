@@ -17,7 +17,7 @@ const User = mongoose.model("User", new mongoose.Schema({
 mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-}).then(() => console.log("✅ Connecté à MongoDB"))
+}).then(() => console.log("✅  ON EST Connecté à MongoDB"))
   .catch((err) => console.error("❌ MongoDB :", err));
 
 // Route de login
@@ -33,4 +33,4 @@ app.post("/api/login", async (req, res) => {
 });
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`🚀 Serveur sur le port ${PORT}`));
+app.listen(PORT, () => console.log(`ON A DIT Serveur sur le port ${PORT}`));
