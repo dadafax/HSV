@@ -2,17 +2,13 @@ import React, { useEffect, useState } from "react";
 import NavBar from "../components/NavBar";
 
 const ProfilePage = () => {
-    // Simuler les données utilisateur et rendez-vous
-    const [user, setUser] = useState({
-        nom: "Dupont",
-        prenom: "Jean",
-        email: "jean.dupont@email.com",
-        role: "patient"
+    // Récupérer l'utilisateur connecté depuis le localStorage
+    const [user, setUser] = useState(() => {
+        const stored = localStorage.getItem('user');
+        return stored ? JSON.parse(stored) : {};
     });
-    const [rendezvous, setRendezvous] = useState([
-        { id: 1, medecin: "Dr. Dorian Dorian", specialite: "Cardiologue", date: "2024-06-20", heure: "10:00" },
-        { id: 2, medecin: "Dr. Y Y", specialite: "Cardiologue", date: "2024-06-25", heure: "14:30" }
-    ]);
+    // Initialiser la liste des rendez-vous à vide
+    const [rendezvous, setRendezvous] = useState([]);
 
     // Ici, on pourrait faire un fetch des vraies données avec useEffect
 

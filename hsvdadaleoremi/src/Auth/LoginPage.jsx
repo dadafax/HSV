@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import axios from "axios";
 import { Button } from "../components/Button";
@@ -34,6 +33,9 @@ const LoginPage = () => {
                 email: '',
                 motDePasse: ''
             });
+
+            // Stocker l'utilisateur connecté dans le localStorage
+            localStorage.setItem('user', JSON.stringify(response.data.utilisateur));
 
             // Redirection vers HomePage
             navigate('/HomePage');
