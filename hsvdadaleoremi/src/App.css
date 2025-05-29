@@ -403,10 +403,26 @@ nav a.active {
 }
 
 /* Styles pour la page de recherche */
+.search-page {
+    min-height: 100vh;
+    background-color: #f8f9fa;
+    padding: 20px;
+}
+
 .search-container {
     max-width: 800px;
     margin: 2rem auto;
-    padding: 0 1rem;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.search-container h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+    font-size: 2rem;
 }
 
 .search-inputs {
@@ -416,17 +432,53 @@ nav a.active {
 }
 
 .search-input {
-    flex: 1;
-    padding: 0.8rem;
+    flex: 2;
+    padding: 12px 20px;
     border: 2px solid #e0e0e0;
     border-radius: 8px;
     font-size: 1rem;
-    transition: border-color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
-.search-input:focus {
+.search-select {
+    flex: 1;
+    padding: 12px 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.search-input:focus,
+.search-select:focus {
     outline: none;
     border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #007bff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 1rem;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 .search-results {
@@ -435,23 +487,137 @@ nav a.active {
 }
 
 .medecin-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 1.5rem;
+    background-color: white;
+    border: 1px solid #e0e0e0;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease;
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 .medecin-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-color: #007bff;
 }
 
-.medecin-card h3 {
+.medecin-info h3 {
     margin: 0 0 0.5rem 0;
-    color: #333;
+    color: #2c3e50;
+    font-size: 1.2rem;
 }
 
-.medecin-card p {
-    margin: 0.5rem 0;
+.medecin-info .specialite {
+    color: #007bff;
+    font-weight: 500;
+    margin: 0.25rem 0;
+}
+
+.medecin-info .email {
     color: #666;
+    font-size: 0.9rem;
+    margin: 0.25rem 0;
+}
+
+.medecin-action {
+    color: #007bff;
+    font-weight: 500;
+}
+
+.medecin-action .view-profile {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.no-results {
+    text-align: center;
+    padding: 2rem;
+    color: #666;
+    font-style: italic;
+}
+
+.search-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.search-header h1 {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 2rem;
+    margin: 0;
+    font-weight: 700;
+}
+
+.search-results-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-top: 2rem;
+    align-items: center;
+}
+
+.search-results-vertical .medecin-card {
+    width: 100%;
+    max-width: 420px;
+}
+
+.profile-page {
+    min-height: 100vh;
+    background-color: #f8f9fa;
+    padding: 20px;
+}
+
+.profile-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    padding: 2rem 2.5rem;
+}
+
+.profile-container h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+}
+
+.profile-info {
+    background: #f2f6fa;
+    border-radius: 10px;
+    padding: 1.2rem 1.5rem;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+.profile-info p {
+    margin: 0.5rem 0;
+}
+
+.profile-rdv h2 {
+    color: #3498db;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.profile-rdv ul {
+    list-style: none;
+    padding: 0;
+}
+
+.rdv-item {
+    background: #e8f1f9;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    padding: 1rem 1.2rem;
+    color: #2c3e50;
+    font-size: 1rem;
+    box-shadow: 0 1px 4px rgba(52,152,219,0.07);
 }

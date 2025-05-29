@@ -8,6 +8,7 @@ import DoctorProfile from './pages/DoctorProfile';
 import BookPage from './pages/BookPage';
 import SearchPage from './pages/SearchPage';
 import DashboardPage from "./pages/DashboardPage";
+import ProfilePage from './pages/ProfilePage';
 import './App.css';
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path="/medecin/:id" element={<DoctorProfile />} />
         <Route path="/SearchPage" element={<SearchPage/>} />
         <Route path="/DashboardPage" element={<DashboardPage />} />
+        <Route path="/profil" element={<ProfilePage />} />
       </Routes>
     </Router>
   );
