@@ -37,8 +37,8 @@ const LoginPage = () => {
             // Stocker l'utilisateur connecté dans le localStorage
             localStorage.setItem('user', JSON.stringify(response.data.utilisateur));
 
-            // Redirection vers HomePage
-            navigate('/HomePage');
+            // Redirection vers la page de profil
+            navigate('/profil');
         } catch (error) {
             setMessage(error.response?.data?.message || 'Erreur lors de la connexion');
             console.log(PORT);
@@ -80,6 +80,11 @@ const LoginPage = () => {
                     <Button type="submit" text="Se connecter" />
                 </div>
             </form>
+            <div style={{ marginTop: '20px', textAlign: 'center' }}>
+                <button type="button" onClick={() => navigate('/register')} style={{ background: 'transparent', color: '#3498db', border: 'none', cursor: 'pointer', textDecoration: 'underline' }}>
+                    Pas de compte ? S'inscrire
+                </button>
+            </div>
         </div>
     );
 };

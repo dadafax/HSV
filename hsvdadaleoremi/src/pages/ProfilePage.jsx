@@ -47,50 +47,52 @@ const ProfilePage = () => {
     };
 
     return (
-        <div className="profile-page">
+        <>
             <NavBar />
-            <div className="profile-container">
-                <h1>Mon Profil</h1>
-                <div className="profile-info">
-                    <p><b>Nom :</b> {user.nom}</p>
-                    <p><b>Prénom :</b> {user.prenom}</p>
-                    <p><b>Email :</b> {user.email}</p>
-                    <p><b>Rôle :</b> {user.role}</p>
-                </div>
-                <div className="profile-rdv">
-                    <h2>{user.role === 'medecin' ? 'Rendez-vous de vos patients' : 'Prochains rendez-vous'}</h2>
-                    {cancelMsg && <div style={{color: cancelMsg.includes('Erreur') ? 'red' : 'green', marginBottom: 10}}>{cancelMsg}</div>}
-                    {loading ? (
-                        <p>Chargement...</p>
-                    ) : rendezvous.length === 0 ? (
-                        <p>Aucun rendez-vous à venir.</p>
-                    ) : (
-                        <ul>
-                            {rendezvous.map(rdv => (
-                                <li key={rdv._id} className="rdv-item" style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
-                                    <span>
-                                        <b>{rdv.date} à {rdv.heure}</b>
-                                        {user.role === 'medecin' ? (
-                                            <> avec {rdv.patientId?.nom} {rdv.patientId?.prenom}<br/>
-                                            <span style={{fontSize: '0.95em', color: '#666'}}>{rdv.patientId?.email}</span></>
-                                        ) : (
-                                            <> avec Dr. {rdv.medecinId?.nom} {rdv.medecinId?.prenom} ({rdv.medecinId?.specialite})<br/>
-                                            <span style={{fontSize: '0.95em', color: '#666'}}>{rdv.medecinId?.email}</span></>
-                                        )}
-                                    </span>
-                                    <button
-                                        style={{background: '#dc3545', color: '#fff', border: 'none', borderRadius: 8, padding: '8px 16px', cursor: 'pointer', marginLeft: 16}}
-                                        onClick={() => handleCancel(rdv._id)}
-                                    >
-                                        Annuler
-                                    </button>
-                                </li>
-                            ))}
-                        </ul>
-                    )}
+            <div className="profile-page">
+                <div className="profile-container">
+                    <h1>Mon Profil</h1>
+                    <div className="profile-info">
+                        <p><b>Nom :</b> {user.nom}</p>
+                        <p><b>Prénom :</b> {user.prenom}</p>
+                        <p><b>Email :</b> {user.email}</p>
+                        <p><b>Rôle :</b> {user.role}</p>
+                    </div>
+                    <div className="profile-rdv">
+                        <h2>{user.role === 'medecin' ? 'Rendez-vous de vos patients' : 'Prochains rendez-vous'}</h2>
+                        {cancelMsg && <div style={{color: cancelMsg.includes('Erreur') ? 'red' : 'green', marginBottom: 10}}>{cancelMsg}</div>}
+                        {loading ? (
+                            <p>Chargement...</p>
+                        ) : rendezvous.length === 0 ? (
+                            <p>Aucun rendez-vous à venir.</p>
+                        ) : (
+                            <ul>
+                                {rendezvous.map(rdv => (
+                                    <li key={rdv._id} className="rdv-item" style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+                                        <span>
+                                            <b>{rdv.date} à {rdv.heure}</b>
+                                            {user.role === 'medecin' ? (
+                                                <> avec {rdv.patientId?.nom} {rdv.patientId?.prenom}<br/>
+                                                <span style={{fontSize: '0.95em', color: '#666'}}>{rdv.patientId?.email}</span></>
+                                            ) : (
+                                                <> avec Dr. {rdv.medecinId?.nom} {rdv.medecinId?.prenom} ({rdv.medecinId?.specialite})<br/>
+                                                <span style={{fontSize: '0.95em', color: '#666'}}>{rdv.medecinId?.email}</span></>
+                                            )}
+                                        </span>
+                                        <button
+                                            style={{background: '#dc3545', color: '#fff', border: 'none', borderRadius: 8, padding: '8px 16px', cursor: 'pointer', marginLeft: 16}}
+                                            onClick={() => handleCancel(rdv._id)}
+                                        >
+                                            Annuler
+                                        </button>
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 };
 

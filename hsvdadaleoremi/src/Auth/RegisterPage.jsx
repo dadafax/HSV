@@ -144,6 +144,11 @@ const RegisterPage = () => {
                     <button type="submit">S'inscrire</button>
                 </div>
             </form>
+            <div style={{ marginTop: '20px', textAlign: 'center' }}>
+                <button type="button" onClick={() => navigate('/login')} style={{ background: 'transparent', color: '#3498db', border: 'none', cursor: 'pointer', textDecoration: 'underline' }}>
+                    Déjà un compte ? Se connecter
+                </button>
+            </div>
         </div>
     );
 };

@@ -48,69 +48,71 @@ const SearchPage = () => {
     }, [searchQuery, specialite]);
 
     return (
-        <div className="search-page">
+        <>
             <NavBar/>
-            <div className="search-container">
-                <div className="search-header">
-                    <h1>Rechercher un Médecin</h1>
-                </div>
-                <div className="search-inputs">
-                    <input
-                        type="search"
-                        id="site-search"
-                        name="q"
-                        className="search-input"
-                        placeholder="Nom du médecin..."
-                        value={searchQuery}
-                        onChange={e => setSearchQuery(e.target.value)}
-                    />
-                    <select
-                        className="search-select"
-                        value={specialite}
-                        onChange={e => setSpecialite(e.target.value)}
-                    >
-                        <option value="">Toutes les spécialités</option>
-                        {specialites.map(spec => (
-                            <option key={spec} value={spec}>{spec}</option>
-                        ))}
-                    </select>
-                </div>
-
-                {loading && (
-                    <div className="loading-container">
-                        <div className="loading-spinner"></div>
-                        <p>Recherche en cours...</p>
+            <div className="search-page">
+                <div className="search-container">
+                    <div className="search-header">
+                        <h1>Rechercher un Médecin</h1>
                     </div>
-                )}
+                    <div className="search-inputs">
+                        <input
+                            type="search"
+                            id="site-search"
+                            name="q"
+                            className="search-input"
+                            placeholder="Nom du médecin..."
+                            value={searchQuery}
+                            onChange={e => setSearchQuery(e.target.value)}
+                        />
+                        <select
+                            className="search-select"
+                            value={specialite}
+                            onChange={e => setSpecialite(e.target.value)}
+                        >
+                            <option value="">Toutes les spécialités</option>
+                            {specialites.map(spec => (
+                                <option key={spec} value={spec}>{spec}</option>
+                            ))}
+                        </select>
+                    </div>
 
-                <div className="search-results-vertical">
-                    {medecins.length > 0 && (
-                        medecins.map(medecin => (
-                            <div
-                                key={medecin._id}
-                                className="medecin-card"
-                                onClick={() => navigate(`/medecin/${medecin._id}`)}
-                            >
-                                <div className="medecin-info">
-                                    <h3>Dr. {medecin.nom} {medecin.prenom}</h3>
-                                    <p className="specialite">{medecin.specialite}</p>
-                                    <p className="email">{medecin.email}</p>
-                                </div>
-                                <div className="medecin-action">
-                                    <span className="view-profile">Voir le profil →</span>
-                                </div>
-                            </div>
-                        ))
-                    )}
-
-                    {!loading && searchQuery.length >= 2 && medecins.length === 0 && (
-                        <div className="no-results">
-                            <p>Aucun médecin trouvé pour votre recherche.</p>
+                    {loading && (
+                        <div className="loading-container">
+                            <div className="loading-spinner"></div>
+                            <p>Recherche en cours...</p>
                         </div>
                     )}
+
+                    <div className="search-results-vertical">
+                        {medecins.length > 0 && (
+                            medecins.map(medecin => (
+                                <div
+                                    key={medecin._id}
+                                    className="medecin-card"
+                                    onClick={() => navigate(`/medecin/${medecin._id}`)}
+                                >
+                                    <div className="medecin-info">
+                                        <h3>Dr. {medecin.nom} {medecin.prenom}</h3>
+                                        <p className="specialite">{medecin.specialite}</p>
+                                        <p className="email">{medecin.email}</p>
+                                    </div>
+                                    <div className="medecin-action">
+                                        <span className="view-profile">Voir le profil →</span>
+                                    </div>
+                                </div>
+                            ))
+                        )}
+
+                        {!loading && searchQuery.length >= 2 && medecins.length === 0 && (
+                            <div className="no-results">
+                                <p>Aucun médecin trouvé pour votre recherche.</p>
+                            </div>
+                        )}
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 };
 
